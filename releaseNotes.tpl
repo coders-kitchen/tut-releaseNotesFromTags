@@ -28,7 +28,7 @@
         <div class="row releasenotes">
             <div class="col-md-4"></div>
             <div class="col-md-4">$releaseNotes</div>
-            <div class="col-md-4">$versions</div>
+            <div class="col-md-4"><h1>Versions</h1>$versions</div>
         </div>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     </body>
