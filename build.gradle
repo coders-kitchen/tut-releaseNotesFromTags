@@ -42,7 +42,7 @@ def readTagMessage(String tag) {
 task releaseNotes() << {
     def releaseNotes = new File('releaseNotes.md')
     releaseNotes.delete()
-    def versions = "*Versions*\n\n"
+    def versions = "# Versions\n\n"
 
 
 
