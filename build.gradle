@@ -63,7 +63,7 @@ task tagger() << {
     def pdp = new PegDownProcessor()
     def engine = new SimpleTemplateEngine()
     def template = engine.createTemplate(new File("releaseNotes.tpl"))
-    def daten = [releaseNotes:pdp.markdownToHtml(new File("releaseNotes.md").text)]
+    def daten = [releaseNotes:pdp.markdownToHtml(new File("releaseNotes.md").text), application: project.name]
 
     def ergebnis = template.make(daten)
     new File('releaseNotes.html').withWriter { w ->

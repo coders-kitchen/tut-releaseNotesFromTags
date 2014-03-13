@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
  <html xml:lang='de' xmlns='http://www.w3.org/1999/xhtml' lang='de'>
    <head>
-     <title>Staaten</title>
+     <title>Release Notes of $application</title>
      <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
      <link rel="stylesheet" href="http://bootswatch.com/superhero/bootstrap.min.css">
 
