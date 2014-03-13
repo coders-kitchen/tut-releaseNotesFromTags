@@ -8,9 +8,9 @@ buildscript {
     }
 }
 
-import groovy.text.SimpleTemplateEngine
 
 import org.pegdown.PegDownProcessor
+import groovy.text.SimpleTemplateEngine
 
 def readTags() {
     def tags = []
@@ -42,28 +42,28 @@ def readTagMessage(String tag) {
 task releaseNotes() << {
     def releaseNotes = new File('releaseNotes.md')
     releaseNotes.delete()
+    def versions = "*Versions*\n\n"
+
+
+
     def tags = readTags()
-
-    releaseNotes << "# Versions\n"
-
-
     tags.each {tag -> 
-        releaseNotes << "- [$tag](#$tag)\n"
+        versions += "- [$tag](#$tag)\n"
     }
 
-    releaseNotes << "\n# Release Notes\n\n"
-
     tags.each {tag -> 
-        releaseNotes << "## ${tag}<a name='${tag}'></a>\n"
+        releaseNotes << "# ${tag}<a name='$tag'></a>\n"
         def message = readTagMessage(tag)
-        message.each{releaseNotes << "$it\n\n"}
+        message.each{releaseNotes << "$it\n"}
+        releaseNotes << "\n"
     }
+
 
     def writer = new StringWriter()
     def pdp = new PegDownProcessor()
     def engine = new SimpleTemplateEngine()
     def template = engine.createTemplate(new File("releaseNotes.tpl"))
-    def daten = [releaseNotes:pdp.markdownToHtml(new File("releaseNotes.md").text), application: project.name]
+    def daten = [releaseNotes:pdp.markdownToHtml(new File("releaseNotes.md").text), application: project.name, versions:pdp.markdownToHtml(versions)]
 
     def ergebnis = template.make(daten)
     new File('releaseNotes.html').withWriter { w ->
