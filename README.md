@@ -6,7 +6,7 @@ Simple tutorial repo that shows how to create beautiful release notes with git, 
 ## Running this example
 
 ```
-./gradlew tagger
+./gradlew releaseNotes
 ```
 
 this will create two files

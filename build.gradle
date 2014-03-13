@@ -39,7 +39,7 @@ def readTagMessage(String tag) {
 
 
 
-task tagger() << {
+task releaseNotes() << {
     def releaseNotes = new File('releaseNotes.md')
     releaseNotes.delete()
     def tags = readTags()
